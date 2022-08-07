@@ -185,12 +185,12 @@ class _ProductDetailViewState extends State<ProductDetailView> {
   }
 
   IconButton _buildCardControlIcon(
-      {required Function onPressed, required Icon icon}) {
+      {required VoidCallback onPressed, required Icon icon}) {
     return IconButton(
       iconSize: 30,
       color: Colors.black,
-      onPressed: () {},
-      icon: Icon(Icons.remove_circle),
+      onPressed: onPressed,
+      icon: icon,
     );
   }
 }
