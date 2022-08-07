@@ -18,32 +18,30 @@ class WelcomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: CustomColorScheme.instance.appBlack,
-      body: SafeArea(
-        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          const Spacer(),
-          buildTopOfPageText(),
-          SizedBox(
-            height: context.mediumValue,
-          ),
-          buildTitleText(context),
-          SizedBox(
-            height: context.mediumValue,
-          ),
-          _buildMainImage(context),
-          SizedBox(
-            height: context.mediumValue,
-          ),
-          buildSignUpButton(context),
-          SizedBox(
-            height: context.normalValue,
-          ),
-          buildSignInButton(context),
-          SizedBox(
-            height: context.normalValue,
-          ),
-          buildBottomOfPageText(context)
-        ]),
-      ),
+      body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        const Spacer(),
+        buildTopOfPageText(),
+        SizedBox(
+          height: context.mediumValue,
+        ),
+        buildTitleText(context),
+        SizedBox(
+          height: context.mediumValue,
+        ),
+        _buildMainImage(context),
+        SizedBox(
+          height: context.mediumValue,
+        ),
+        buildSignUpButton(context),
+        SizedBox(
+          height: context.normalValue,
+        ),
+        buildSignInButton(context),
+        SizedBox(
+          height: context.normalValue,
+        ),
+        buildBottomOfPageText(context)
+      ]),
     );
   }
 

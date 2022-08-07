@@ -17,28 +17,26 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: const Color(0xFFEEEEEE),
-        body: Padding(
-          padding: context.paddingMedium,
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                _buildsearchBox(),
-                SizedBox(height: context.mediumValue),
-                _buildMainCard(),
-                SizedBox(height: context.mediumValue),
-                _buildCategoryList(),
-                SizedBox(height: context.mediumValue),
-                _buildProductCardList()
-              ],
-            ),
+    return Scaffold(
+      backgroundColor: const Color(0xFFEEEEEE),
+      body: Padding(
+        padding: context.paddingAllLow,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              _buildsearchBox(),
+              SizedBox(height: context.mediumValue),
+              _buildMainCard(),
+              SizedBox(height: context.mediumValue),
+              _buildCategoryList(),
+              SizedBox(height: context.mediumValue),
+              _buildProductCardList()
+            ],
           ),
         ),
-        // ignore: prefer_const_constructors
-        bottomNavigationBar: MyBottomNavBar(),
       ),
+      // ignore: prefer_const_constructors
+      bottomNavigationBar: MyBottomNavBar(),
     );
   }
 

@@ -38,7 +38,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
           _buildProductInformation(),
         ],
       ),
-      bottomNavigationBar: _buildNavigationBar(),
+      //bottomNavigationBar: _buildNavigationBar(),
     );
   }
 
@@ -59,11 +59,10 @@ class _ProductDetailViewState extends State<ProductDetailView> {
   _buildProductInformation() {
     return SingleChildScrollView(
       child: Container(
-        padding: const EdgeInsets.all(15),
         decoration: const BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.only(
-                topRight: Radius.circular(23), topLeft: Radius.circular(23))),
+                topRight: Radius.circular(1), topLeft: Radius.circular(1))),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           // ignore: prefer_const_literals_to_create_immutables
@@ -73,6 +72,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
             _buildProductDescription(),
             SizedBox(height: context.mediumValue),
             _buildOtherImageOfProductsList(),
+            _buildNavigationBar()
           ],
         ),
       ),
@@ -185,7 +185,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
   }
 
   IconButton _buildCardControlIcon(
-      {required VoidCallback onPressed, required Icon icon}) {
+      {required VoidCallback? onPressed, required Icon icon}) {
     return IconButton(
       iconSize: 30,
       color: Colors.black,
