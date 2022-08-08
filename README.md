@@ -1,16 +1,7 @@
 # ui_design_2
 
-A new Flutter project.
+![Ekran Görüntüsü (66)](https://user-images.githubusercontent.com/75577514/183533325-617d0160-4606-4e79-9a2b-b1863f12f831.png)
 
-## Getting Started
+![Ekran Görüntüsü (67)](https://user-images.githubusercontent.com/75577514/183533332-b17e721d-8d1d-4d21-a583-a55842af2f4d.png)
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Ekran Görüntüsü (68)](https://user-images.githubusercontent.com/75577514/183533335-4b306f30-3b3e-442f-87c7-f7b0cff12f10.png)
