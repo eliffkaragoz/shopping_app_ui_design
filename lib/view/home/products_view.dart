@@ -1,4 +1,7 @@
+// ignore_for_file: prefer_const_constructors, duplicate_ignore
+
 import 'package:flutter/material.dart';
+import 'package:ui_design_2/view/home/model/product.dart';
 import '../../components/card.dart';
 import '../../components/text.dart';
 import '../../extension/context_extension.dart';
@@ -12,113 +15,63 @@ class ProductsView extends StatefulWidget {
 }
 
 class _ProductsViewState extends State<ProductsView> {
+  List productList = [
+    Product(
+        productName: "Jordon Zoom Seperate PD",
+        price: "133",
+        isFavorite: false,
+        // ignore: prefer_const_constructors
+        image: AssetImage("assets/1.jpg")),
+    Product(
+        productName: "Jordon Zoom ",
+        price: "1200",
+        isFavorite: false,
+        // ignore: prefer_const_constructors
+        image: AssetImage("assets/2.jpg")),
+    // ignore: duplicate_ignore
+    Product(
+        productName: "Nike Air Zoom",
+        price: "160",
+        isFavorite: false,
+        // ignore: prefer_const_constructors
+        image: AssetImage("assets/4.jpg")),
+    Product(
+        productName: "Tonny Black Siyah Beyaz Unisex Sneaker ",
+        price: "127",
+        isFavorite: true,
+        image: AssetImage("assets/5.jpg")),
+    Product(
+        productName: "Nike Air Zoom",
+        price: "160",
+        isFavorite: false,
+        // ignore: prefer_const_constructors
+        image: AssetImage("assets/4.jpg")),
+    Product(
+        productName: "Tonny Black Siyah Beyaz Unisex Sneaker ",
+        price: "127",
+        isFavorite: true,
+        image: AssetImage("assets/5.jpg")),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
         height: context.dynamicHeight(1),
         width: context.dynamicWidth(1),
-        child: GridView.count(
-          primary: false,
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-          crossAxisCount: 2,
-          children: <Widget>[
-            _buildProductCard(
-              // ignore: prefer_const_constructors
-              image: AssetImage("assets/1.jpg"),
-              productName: "Jordon Zoom Seperate PF",
-              price: "133",
-              isFavorite: true,
-            ),
-            _buildProductCard(
-              // ignore: prefer_const_constructors
-              image: AssetImage("assets/1.jpg"),
-              productName: "Jordon Zoom Seperate PF",
-              price: "133",
-              isFavorite: true,
-            ),
-            _buildProductCard(
-              // ignore: prefer_const_constructors
-              image: AssetImage("assets/1.jpg"),
-              productName: "Jordon Zoom Seperate PF",
-              price: "133",
-              isFavorite: true,
-            ),
-            _buildProductCard(
-              // ignore: prefer_const_constructors
-              image: AssetImage("assets/1.jpg"),
-              productName: "Jordon Zoom Seperate PF",
-              price: "133",
-              isFavorite: true,
-            ),
-            _buildProductCard(
-              // ignore: prefer_const_constructors
-              image: AssetImage("assets/1.jpg"),
-              productName: "Jordon Zoom Seperate PF",
-              price: "133",
-              isFavorite: true,
-            ),
-            _buildProductCard(
-              // ignore: prefer_const_constructors
-              image: AssetImage("assets/1.jpg"),
-              productName: "Jordon Zoom Seperate PF",
-              price: "133",
-              isFavorite: true,
-            ),
-          ],
-        )
-        // CustomScrollView(
-        //   primary: false,
-        //   slivers: <Widget>[
-        //     SliverPadding(
-        //       padding: const EdgeInsets.all(0.1),
-        //       sliver: SliverGrid.count(
-        //         crossAxisSpacing: 10,
-        //         mainAxisSpacing: 10,
-        //         crossAxisCount: 2,
-        //         //Burada ListView.builder içerisinde yapmaya çalıştım ama çok hata aldım
-        //         children: <Widget>[
-        //           _buildProductCard(
-        //             // ignore: prefer_const_constructors
-        //             image: AssetImage("assets/1.jpg"),
-        //             productName: "Jordon Zoom Seperate PF",
-        //             price: "133",
-        //             isFavorite: true,
-        //           ),
-        //           _buildProductCard(
-        //             // ignore: prefer_const_constructors
-        //             image: AssetImage("assets/2.jpg"),
-        //             productName: "Jordon Zoom Seperate PF",
-        //             price: "1500",
-
-        //             isFavorite: false,
-        //           ),
-        // _buildProductCard(
-        //   // ignore: prefer_const_constructors
-        //   image: AssetImage("assets/1.jpg"),
-        //   productName: "Jordon Zoom Seperate PF",
-        //   price: "133",
-        //   isFavorite: true,
-        // ),
-        //           _buildProductCard(
-        //             // ignore: prefer_const_constructors
-        //             image: AssetImage("assets/2.jpg"),
-        //             productName: "Jordon Zoom Seperate PF",
-        //             price: "1500", isFavorite: false,
-        //           ),
-        //         ],
-        //       ),
-        //     ),
-        //   ],
-        // ));
-        );
+        child: GridView.builder(
+            primary: false,
+            itemCount: productList.length,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                //  childAspectRatio: 3 / 2,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10),
+            itemBuilder: (ctx, index) {
+              return _buildProductCard(productList[index]);
+            }));
   }
 
-  GestureDetector _buildProductCard(
-      {required AssetImage image,
-      required String productName,
-      required String price,
-      required bool isFavorite}) {
+  GestureDetector _buildProductCard(Product product) {
     return GestureDetector(
         onTap: () {
           Navigator.push(
@@ -126,7 +79,9 @@ class _ProductsViewState extends State<ProductsView> {
             MaterialPageRoute(
               // ignore: prefer_const_constructors
               builder: (context) => ProductDetailView(
-                  image: image, productName: productName, price: price),
+                  image: product.image,
+                  productName: product.productName,
+                  price: product.price),
             ),
           );
         },
@@ -136,14 +91,14 @@ class _ProductsViewState extends State<ProductsView> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              _buildPriceInCard(price),
+              _buildPriceInCard(product.price),
               Flexible(
-                child: Image(image: image),
+                child: Image(image: product.image),
               ),
               Row(
                 children: [
-                  _buildProductNameText(productName),
-                  _buildIsFavoriteIcon(isFavorite)
+                  _buildProductNameText(product.productName),
+                  _buildIsFavoriteIcon(product.isFavorite)
                 ],
               )
             ],
@@ -163,21 +118,34 @@ class _ProductsViewState extends State<ProductsView> {
     );
   }
 
-  IconButton _buildIsFavoriteIcon(bool isFavorite) {
-    return IconButton(
-        onPressed: () {
-          setState(() {
-            isFavorite == true ? isFavorite = false : isFavorite = true;
-          });
-        },
-        icon: isFavorite == true
-            // ignore: prefer_const_constructors
-            ? Icon(Icons.favorite_border)
-            // ignore: prefer_const_constructors
-            : Icon(
-                Icons.favorite,
-                color: Colors.red,
-              ));
+  _buildIsFavoriteIcon(bool isFavorite) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          // ignore: avoid_print
+
+          isFavorite == true ? isFavorite = false : isFavorite = true;
+          print(isFavorite);
+          // ignore: avoid_print
+        });
+      },
+      child: IconButton(
+          onPressed: () {
+            setState(() {
+              // ignore: avoid_print
+
+              isFavorite == true ? isFavorite = false : isFavorite = true;
+              // ignore: avoid_print
+              print(isFavorite);
+            });
+          },
+          icon: isFavorite == true
+              ? Icon(Icons.favorite_border)
+              : Icon(
+                  Icons.favorite,
+                  color: Colors.red,
+                )),
+    );
   }
 
   Align _buildPriceInCard(String price) {

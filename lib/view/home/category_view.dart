@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ui_design_2/view/home/home_view.dart';
+import 'home_view.dart';
 import '../../components/card.dart';
 import '../../extension/context_extension.dart';
 
@@ -10,24 +10,27 @@ class CategoryView extends StatefulWidget {
 }
 
 class _CategoryViewState extends State<CategoryView> {
+  List categoryList = [
+    "Shoe",
+    "Electronic",
+    "Furniture",
+    "Kitchen",
+    "Cosmetic",
+    "Cosmetic",
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          //Burdada ListView.builder içerisinde getirmeye çalıştım ama hata aldım
-          _buildCategoryCard(icon: Icons.people, text: "Life Style"),
-          _buildCategoryCard(icon: Icons.computer, text: "Electronic"),
-          _buildCategoryCard(icon: Icons.featured_play_list, text: "Feature"),
-          _buildCategoryCard(icon: Icons.kitchen_rounded, text: "Kitchen"),
-          _buildCategoryCard(icon: Icons.featured_play_list, text: "Feature"),
-          _buildCategoryCard(icon: Icons.kitchen_rounded, text: "Kitchen"),
-          _buildCategoryCard(icon: Icons.featured_play_list, text: "Feature"),
-          _buildCategoryCard(icon: Icons.kitchen_rounded, text: "Kitchen"),
-        ],
-      ),
+    return SizedBox(
+      height: context.dynamicHeight(0.14),
+      width: double.infinity,
+      child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: categoryList.length,
+          itemBuilder: ((context, index) {
+            return _buildCategoryCard(
+                icon: Icons.people, text: categoryList[index]);
+          })),
     );
   }
 

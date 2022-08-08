@@ -49,6 +49,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
             onPressed: () {
               setState(() {
                 isFavorite == true ? isFavorite = false : isFavorite = true;
+                print(isFavorite);
               });
             },
             icon: isFavorite == true

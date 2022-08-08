@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ui_design_2/view/home/category_view.dart';
+import 'category_view.dart';
 import '../../components/card.dart';
 import '../../components/navigation_bar.dart';
 import '../../components/text.dart';
@@ -67,7 +67,7 @@ class _HomeViewState extends State<HomeView> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   _buildMainCardColumn(text1: "Balance", text2: "\$280.65"),
-                  _buildMainCardColumn(text1: "VISA", text2: "...3028"),
+                  _buildMainCardColumn(text1: "   VISA", text2: "...3028"),
                 ]),
           )),
     );
@@ -77,17 +77,12 @@ class _HomeViewState extends State<HomeView> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        _buildMainCardTextValues(
-          text: text1,
-          color: Colors.white54,
+        MyText(text: text1, color: Colors.white54),
+        MyText(
+          text: text2,
+          color: Colors.white,
         ),
-        _buildMainCardTextValues(text: text2),
       ],
     );
-  }
-
-  MyText _buildMainCardTextValues(
-      {required String text, Color color = Colors.white, double? size}) {
-    return MyText(text: text, color: color, fontSize: size);
   }
 }
