@@ -93,7 +93,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
               SizedBox(height: context.mediumValue),
               _buildProductDescription(),
               SizedBox(height: context.mediumValue),
-              _buildOtherImageOfProductsList(),
+              _buildOtherImageOfProduct(),
               _buildCartInformation()
             ],
           ),
@@ -140,7 +140,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
     );
   }
 
-  Row _buildOtherImageOfProductsList() {
+  Row _buildOtherImageOfProduct() {
     //Buradada ListView.builder kullanamadım
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,

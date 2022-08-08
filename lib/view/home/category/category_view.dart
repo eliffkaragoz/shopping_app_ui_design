@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'category_model.dart';
-import '../product/product_model.dart';
+import 'package:ui_design_2/view/home/category/category_model.dart';
+import 'package:ui_design_2/view/home/product/product_model.dart';
 import '../home_view.dart';
 import '../../../components/card.dart';
 import '../../../extension/context_extension.dart';
