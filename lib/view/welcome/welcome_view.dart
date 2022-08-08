@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ui_design_2/components/buttons/elevated_button_widget.dart';
-import 'package:ui_design_2/theme/color_constants.dart';
-import 'package:ui_design_2/extension/context_extension.dart';
-import 'package:ui_design_2/view/home/home_view.dart';
+import '../../components/buttons/elevated_button_widget.dart';
+import '../../theme/color_constants.dart';
+import '../../extension/context_extension.dart';
+import '../home/home_view.dart';
 part 'welcome_string_values.dart';
 
 // ignore: must_be_immutable

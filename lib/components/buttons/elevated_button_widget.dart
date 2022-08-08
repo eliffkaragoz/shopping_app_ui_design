@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ui_design_2/components/text.dart';
+import '../text.dart';
 
 class MyElevatedButton extends StatelessWidget {
   const MyElevatedButton(

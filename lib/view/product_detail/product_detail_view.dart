@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:ui_design_2/components/buttons/elevated_button_widget.dart';
 import 'package:ui_design_2/components/card.dart';
 import 'package:ui_design_2/components/text.dart';
-import 'package:ui_design_2/theme/color_constants.dart';
 import 'package:ui_design_2/extension/context_extension.dart';
+import 'package:ui_design_2/theme/color_constants.dart';
 
 class ProductDetailView extends StatefulWidget {
   const ProductDetailView({
@@ -23,6 +23,7 @@ class ProductDetailView extends StatefulWidget {
 }
 
 class _ProductDetailViewState extends State<ProductDetailView> {
+  bool isFavorite = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,17 +36,27 @@ class _ProductDetailViewState extends State<ProductDetailView> {
               child: Image(
             image: widget.image,
           )),
-          _buildProductInformation(),
+          _buildProductInformationBox(),
         ],
       ),
-      //bottomNavigationBar: _buildNavigationBar(),
     );
   }
 
   AppBar _buildAppBar() {
     return AppBar(
       actions: [
-        IconButton(onPressed: () {}, icon: Icon(Icons.favorite_border))
+        IconButton(
+            onPressed: () {
+              setState(() {
+                isFavorite == true ? isFavorite = false : isFavorite = true;
+              });
+            },
+            icon: isFavorite == true
+                ? Icon(Icons.favorite_border)
+                : Icon(
+                    Icons.favorite,
+                    color: Colors.red,
+                  ))
       ],
       iconTheme: IconThemeData(
         color: Colors.black, //change your color here
@@ -56,55 +67,67 @@ class _ProductDetailViewState extends State<ProductDetailView> {
     );
   }
 
-  _buildProductInformation() {
+//Ayrı bir class'a taşısam abartmış olur muyum?
+  SingleChildScrollView _buildProductInformationBox() {
     return SingleChildScrollView(
-      child: Container(
-        decoration: const BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.only(
-                topRight: Radius.circular(1), topLeft: Radius.circular(1))),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          // ignore: prefer_const_literals_to_create_immutables
-          children: [
-            _buildProductNameAndPrice(widget.productName, widget.price),
-            SizedBox(height: context.mediumValue),
-            _buildProductDescription(),
-            SizedBox(height: context.mediumValue),
-            _buildOtherImageOfProductsList(),
-            _buildNavigationBar()
-          ],
+      child: Padding(
+        padding: context.paddingAllLow,
+        child: Container(
+          decoration: const BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(1), topLeft: Radius.circular(1))),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            // ignore: prefer_const_literals_to_create_immutables
+            children: [
+              SizedBox(height: context.mediumValue),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  _buildProductNameText(),
+                  _buildProductPriceCard(),
+                ],
+              ),
+              SizedBox(height: context.mediumValue),
+              _buildProductDescription(),
+              SizedBox(height: context.mediumValue),
+              _buildOtherImageOfProductsList(),
+              _buildCartInformation()
+            ],
+          ),
         ),
       ),
     );
   }
 
-  _buildProductNameAndPrice(productName, price) {
-    return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-      SizedBox(
-        height: context.dynamicHeight(0.10),
-        width: context.dynamicWidth(0.5),
-        child: MyText(
-          text: productName,
-          fontSize: 32,
-          fontWeight: FontWeight.bold,
-        ),
+  SizedBox _buildProductPriceCard() {
+    return SizedBox(
+      height: context.dynamicHeight(0.08),
+      width: context.dynamicWidth(0.3),
+      child: MyCard(
+          color: Colors.orange,
+          child: Center(
+            child: MyText(
+              color: Colors.white,
+              // ignore: unnecessary_brace_in_string_interps
+              text: "\$${widget.price}",
+              fontWeight: FontWeight.w500,
+            ),
+          )),
+    );
+  }
+
+  SizedBox _buildProductNameText() {
+    return SizedBox(
+      height: context.dynamicHeight(0.08),
+      width: context.dynamicWidth(0.5),
+      child: MyText(
+        text: widget.productName,
+        fontSize: 25,
+        fontWeight: FontWeight.bold,
       ),
-      SizedBox(
-        height: context.dynamicHeight(0.10),
-        width: context.dynamicWidth(0.3),
-        child: MyCard(
-            color: Colors.orange,
-            child: Center(
-              child: MyText(
-                color: Colors.white,
-                // ignore: unnecessary_brace_in_string_interps
-                text: "\$${price}",
-                fontWeight: FontWeight.w500,
-              ),
-            )),
-      )
-    ]);
+    );
   }
 
   MyText _buildProductDescription() {
@@ -141,7 +164,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
     ));
   }
 
-  _buildNavigationBar() {
+  Container _buildCartInformation() {
     return Container(
       height: 80,
       decoration: BoxDecoration(

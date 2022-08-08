@@ -16,9 +16,6 @@ class MyBottomNavBar extends StatelessWidget {
         borderRadius: BorderRadius.only(
             topRight: Radius.circular(40), topLeft: Radius.circular(40)),
         // ignore: prefer_const_literals_to_create_immutables
-        boxShadow: [
-          BoxShadow(blurRadius: 5, color: Colors.black12),
-        ],
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
