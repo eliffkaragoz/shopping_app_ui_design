@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'category_view.dart';
+
 import '../../components/card.dart';
 import '../../components/navigation_bar.dart';
 import '../../components/text.dart';
 import '../../components/textfield_widget.dart';
 import '../../extension/context_extension.dart';
 import '../../theme/color_constants.dart';
-import 'products_view.dart';
+import 'category/category_view.dart';
+import 'product/products_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);

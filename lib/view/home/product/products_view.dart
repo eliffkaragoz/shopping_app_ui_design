@@ -1,14 +1,14 @@
-// ignore_for_file: prefer_const_constructors, duplicate_ignore
+// ignore_for_file: prefer_const_constructors, duplicate_ignore, avoid_print
 
 import 'package:flutter/material.dart';
-import 'package:ui_design_2/view/home/model/product.dart';
-import '../../components/card.dart';
-import '../../components/text.dart';
-import '../../extension/context_extension.dart';
-import '../product_detail/product_detail_view.dart';
+import 'package:ui_design_2/components/card.dart';
+import 'package:ui_design_2/components/text.dart';
+import 'package:ui_design_2/extension/context_extension.dart';
+import 'package:ui_design_2/view/home/product/product_model.dart';
+import 'package:ui_design_2/view/product_detail/product_detail_view.dart';
 
 class ProductsView extends StatefulWidget {
-  const ProductsView({Key? key}) : super(key: key);
+  const ProductsView({List? productList, Key? key}) : super(key: key);
 
   @override
   State<ProductsView> createState() => _ProductsViewState();

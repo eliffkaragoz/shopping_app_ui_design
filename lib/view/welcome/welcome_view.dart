@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+
 import '../../components/buttons/elevated_button_widget.dart';
-import '../../theme/color_constants.dart';
 import '../../extension/context_extension.dart';
-import 'package:ui_design_2/view/home/home_view.dart';
+import '../../theme/color_constants.dart';
+import '../home/home_view.dart';
+
 part 'welcome_string_values.dart';
+
+//      "https://cdn.pixabay.com/photo/2017/07/20/21/20/shopping-cart-2523838_960_720.png";
 
 // ignore: must_be_immutable
 class WelcomeView extends StatelessWidget {
   WelcomeView({Key? key}) : super(key: key);
 
   final image =
-      "https://img.freepik.com/premium-photo/online-shopping-mobile-phone_172660-107.jpg?w=1060";
+      "https://cdn.pixabay.com/photo/2020/05/20/15/02/shopping-cart-5196890_960_720.jpg";
   // ignore: library_private_types_in_public_api
   _HomeStringValues values = _HomeStringValues();
 
